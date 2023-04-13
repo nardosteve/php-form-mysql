@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="h2 text-center">HTML Forms</h1>
+        <h1 class="h2 text-center mt-5">HTML Forms</h1>
         <?php include 'form-control/form.php' ?>
     </div>
 </body>

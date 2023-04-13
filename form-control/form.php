@@ -6,7 +6,7 @@
                 <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
             </div>
             <div class="col-6">
-                <label for="names" class="form-label">Names</label>
+                <label for="names" class="form-label">Full Names</label>
                 <input type="text" class="form-control" id="names" placeholder="John Doe">
             </div>
             <div class="col-6">
