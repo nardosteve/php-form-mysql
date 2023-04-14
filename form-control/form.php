@@ -1,5 +1,5 @@
 <div class="container md">
-    <form action="">
+    <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="email" class="form-label">Email address</label>
@@ -7,20 +7,15 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <label for="names" class="form-label">Full Names</label>
-                <input type="text" class="form-control" id="names" placeholder="John Doe">
+                <input type="text" class="form-control" id="names" name="names" placeholder="John Doe">
             </div>
             <div class="col-md-6 col-sm-12">
-                <label for="formFile" class="form-label">Upload image</label>
-                <input class="form-control" type="file" id="formFile">
+                <label for="uploadImage" class="form-label">Upload image</label>
+                <input class="form-control" type="file" id="uploadImage" name="uploadImage">
             </div>
             <div class="col-md-6 col-sm-12 mb-3">
-                <label for="formFile" class="form-label">Select country</label>
-                <select class="form-select" aria-label="Default select example">
-                <option selected>Country</option>
-                <option value="1">Kenya</option>
-                <option value="2">Uganda</option>
-                <option value="3">Burundi</option>
-                </select>
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="John Doe">
             </div>
         </div>
         <div class="d-grid gap-2">

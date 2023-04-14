@@ -15,22 +15,6 @@ if($conn->connect_error){
     echo "Connected successfully";
 }
 
-//Create tables
-$sql = "CREATE TABLE userForm(
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    emailAddress VARCHAR(30) NOT NULL,
-    fullNames VARCHAR(60) NOT NULL,
-    uploadImage VARCHAR(60) NOT NULL,
-    country VARCHAR(30) NOT NULL,
-    uploadDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    )";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Table Successfully Created!";
-  } else {
-    echo "Error creating table: " . $conn->error;
-  }
-
 //Create database
 // $sqlCommand = "CREATE DATABASE my_form";
 
@@ -39,6 +23,32 @@ if ($conn->query($sql) === TRUE) {
 //     echo "Database Created!";
 // }else{
 //     echo "ERROR Creating Database: " .$conn->error;
+// }
+
+//Create tables
+// $sql = "CREATE TABLE userForm(
+//     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     emailAddress VARCHAR(30) NOT NULL,
+//     fullNames VARCHAR(60) NOT NULL,
+//     uploadImage VARCHAR(60) NOT NULL,
+//     country VARCHAR(30) NOT NULL,
+//     uploadDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+//     )";
+
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table Successfully Created!";
+//   } else {
+//     echo "Error creating table: " . $conn->error;
+//   }
+
+// $sql = "
+// INSERT INTO userform (emailAddress, fullNames, uploadImage, country)
+// VALUES ('smungaimuroki@gmail.com', 'Stephen Mungai Muroki', 'steve.jpg', 'kenya')";
+
+// if ($conn->query($sql) === TRUE) {
+//   echo "New record created successfully";
+// } else {
+//   echo "Error: " . $sql . "<br>" . $conn->error;
 // }
 
 $conn->close();
