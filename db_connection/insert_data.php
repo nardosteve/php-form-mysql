@@ -7,9 +7,7 @@ if(isset($_POST['submit'])){
     $names = $_POST['names'];
 
     //Image handling
-    $uploadImage = $FILES['uploadImage']['name'];
-    $tempName = $FILES['uploadImage']['tmp_name'];
-    $folder = "../images/" . $uploadImage;
+    $uploadImage = $_FILES['uploadImage']['name'];
     //Image handling
 
     $country = $_POST['country'];
@@ -17,7 +15,7 @@ if(isset($_POST['submit'])){
     $sqlInsert = "INSERT INTO userform (emailAddress, fullNames, fullNames, country)
         VALUES('$email', '$names', '$uploadImage', '$country')";
 
-    if($conn->query($sqlInsert) === TRUE && move_uploaded_file($tempName, $folder)){
+    if($conn->query($sqlInsert) === TRUE){
         echo "User Added!";
     }else{
         echo " Error:" . $sqlInsert . "<br>" . $conn->error;

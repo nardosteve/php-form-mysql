@@ -19,7 +19,8 @@
             </div>
         </div>
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- <button type="submit" class="btn btn-primary" name="submit">Submit</button> -->
+            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
     </form>
 </div>
