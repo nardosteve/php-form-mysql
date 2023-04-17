@@ -10,8 +10,8 @@
                 <input type="text" class="form-control" id="names" name="names" placeholder="John Doe">
             </div>
             <div class="col-md-6 col-sm-12">
-                <label for="uploadImage" class="form-label">Upload image</label>
-                <input class="form-control" type="file" id="uploadImage" name="uploadImage">
+                <label for="uploadFile" class="form-label">Upload File</label>
+                <input class="form-control" type="file" id="uploadFile" name="uploadFile">
             </div>
             <div class="col-md-6 col-sm-12 mb-3">
                 <label for="country" class="form-label">Country</label>

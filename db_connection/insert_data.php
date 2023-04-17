@@ -7,14 +7,14 @@ if(isset($_POST['submit'])){
     $names = $_POST['names'];
 
     //File handling
-    $fileName = $_FILES['uploadImage']['name'];
+    $fileName = $_FILES['uploadFile']['name'];
     //print_r($_FILES['uploadImage']);
 
-    $fileTmp = $_FILES['uploadImage']['tmp_name'];
+    $fileTmp = $_FILES['uploadFile']['tmp_name'];
     //print_r($fileTmp);
-    $fileSize = $_FILES['uploadImage']['size'];
-    $fileError = $_FILES['uploadImage']['error'];
-    $fileType = $_FILES['uploadImage']['type'];
+    $fileSize = $_FILES['uploadFile']['size'];
+    $fileError = $_FILES['uploadFile']['error'];
+    $fileType = $_FILES['uploadFile']['type'];
 
     //Explode the file name by the extension
     $fileExtension = explode('.', $fileName);
@@ -52,8 +52,8 @@ if(isset($_POST['submit'])){
 
     $country = $_POST['country'];
 
-    $sqlInsert = "INSERT INTO userform (emailAddress, fullNames, uploadFile, country)
-        VALUES('$email', '$names', '$uploadImage', '$country')";
+    $sqlInsert = "INSERT INTO userform (emailAddress, fullNames, uploadImage, country)
+        VALUES('$email', '$names', '$fileDestination', '$country')";
 
     if($conn->query($sqlInsert) === TRUE){
         echo "User Added & Image!";
