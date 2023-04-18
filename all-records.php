@@ -5,7 +5,7 @@
     $selectAll = "SELECT * FROM userform;";
     $results = $conn->query($selectAll);
 
-    echo '<div class="container mt-5">';
+    echo '<div class="container table-responsive mt-5">';
     echo '<table class="table table-striped">';
     echo '
             <thead>
@@ -15,6 +15,7 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">File Upload</th>
                 <th scope="col">Country</th>
+                <th scope="col">Actions</th>
                 </tr>
             </thead>
         ';
