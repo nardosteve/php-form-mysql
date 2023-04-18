@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                <input type="email" name="email" class="form-control" id="email" placeholder="john.doe@gmail.com">
             </div>
             <div class="col-md-6 col-sm-12">
                 <label for="names" class="form-label">Full Names</label>
@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-6 col-sm-12 mb-3">
                 <label for="country" class="form-label">Country</label>
-                <input type="text" class="form-control" id="country" name="country" placeholder="John Doe">
+                <input type="text" class="form-control" id="country" name="country" placeholder="Kenya">
             </div>
         </div>
         <div class="d-grid gap-2">

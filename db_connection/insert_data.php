@@ -33,11 +33,14 @@ if(isset($_POST['submit'])){
                 //Prevent Upload Override (generate unique name)
                 $fileNewName = uniqid('', true). "." . $fileActualExtension;
                 //New destination of the uploaded file in the root folder
-                $fileDestination = '../images/'.$fileNewName;
+                $fileDestination = '../files/'.$fileNewName;
                 //Move file from temporary location to new location
                 $newLocation = move_uploaded_file($fileTmp, $fileDestination);
 
                 echo "Uploaded Successfully" . $newLocation;
+
+                header('../index.php');
+                
 
             }else{
                 echo "File is too Big!";
@@ -55,11 +58,13 @@ if(isset($_POST['submit'])){
     $sqlInsert = "INSERT INTO userform (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
 
-    if($conn->query($sqlInsert) === TRUE){
-        echo "User Added & Image!";
+    if($conn->query($sqlInsert)){
+        echo "User Added & File Uploaded!";
     }else{
         echo " Error:" . $sqlInsert . "<br>" . $conn->error;
     }
+
+$conn->close();
 
 }
 
