@@ -1,4 +1,6 @@
-<div class="container md">
+<?php include 'header.php' ?>
+
+<div class="container mt-5">
     <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
@@ -24,3 +26,5 @@
         </div>
     </form>
 </div>
+
+<?php include 'footer.php' ?>

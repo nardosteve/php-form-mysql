@@ -1,4 +1,4 @@
-<?php include '../../partials/header.php' ?>
+<?php include 'header.php' ?>
 <div class="container mt-5">
     <table class="table table-striped">
         <thead>
@@ -31,6 +31,5 @@
     </table>
 </div>
 
-<?php include '../../partials/footer.php' ?>
-
+<?php include 'footer.php' ?>
 
