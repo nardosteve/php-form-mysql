@@ -66,6 +66,8 @@ if(isset($_POST['submit'])){
 
 $conn->close();
 
+}
+
 //Sanitize forms (Validation)
 function sanitizeInput($inputText){
     $inputText = strip_tags($inputText);
@@ -74,8 +76,6 @@ function sanitizeInput($inputText){
     $inputText = ucfirst($inputText);
 
     return $inputText;
-}
-
 }
 
 ?>
