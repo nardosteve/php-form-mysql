@@ -3,8 +3,8 @@
 include_once 'connection.php';
 
 if(isset($_POST['submit'])){
-    $email = $_POST['email'];
-    $names = $_POST['names'];
+    $email = sanitizeInput($_POST['email']);
+    $names = sanitizeInput($_POST['names']);
 
     //File handling
     $fileName = $_FILES['uploadFile']['name'];
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
     }
     //File handling
 
-    $country = $_POST['country'];
+    $country = sanitizeInput($_POST['country']);
 
     $sqlInsert = "INSERT INTO userform (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
@@ -65,6 +65,16 @@ if(isset($_POST['submit'])){
     }
 
 $conn->close();
+
+//Sanitize forms (Validation)
+function sanitizeInput($inputText){
+    $inputText = strip_tags($inputText);
+    $inputText = str_replace(" ", "", $inputText);
+    $inputText = strtolower($inputText);
+    $inputText = ucfirst($inputText);
+
+    return $inputText;
+}
 
 }
 
