@@ -1,15 +1,18 @@
 <?php
 
+include_once 'connection.php';
+
 if(isset($_GET["deleteId"])){
 
     $id = $_GET["deleteId"];
 
     $sqlDelete = "DELETE FROM userform WHERE id = $id";
 
-    $result = mysqli_query($conn, $sqlDelete);
+    $result = $conn->query($sqlDelete);
 
     if($result){
-        echo "User Delete!";
+        echo "User Data Delete!";
+        header("location: ../all-records.php");
     }else{
         die(mysqli_error($conn));
     }
