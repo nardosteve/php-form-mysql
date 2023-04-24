@@ -36,7 +36,7 @@
             echo '<td>' . $row["country"] . '</td>';
             echo '<div class="row">';
             echo "<td><a href='#view". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#view". $row['id'] . "'><img src='icons/eye.svg'></a></td>";          
-            echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit' data-bs-whatever='@mdo'><img src='icons/pencil-square.svg'></a></td>";        
+            echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit". $row['id'] . "' data-bs-whatever='@mdo'><img src='icons/pencil-square.svg'></a></td>";        
             echo '<td><a href="db_connection/delete_data.php?deleteId='. $row['id'].'"><img src="icons/trash.svg"></a></td>';       
             echo '</div<>';
             echo '</tr>';
@@ -52,17 +52,17 @@
                         </div>
                         <div class='modal-body'>
                 ";
-                            echo "<h1 class='h4'>Email Address :</h1>";
-                            echo '<p>' . $row["emailAddress"] . '</p>';
+                            echo "<h1 class='h5'>Email Address</h1>";
+                            echo '<p class="mb-3">' . $row["emailAddress"] . '</p>';
 
-                            echo "<h1 class='h4'>Name :</h1>";
-                            echo '<p>' . $row["fullNames"] . '</p>';
+                            echo "<h1 class='h5'>Names</h1>";
+                            echo '<p class="mb-3">' . $row["fullNames"] . '</p>';
 
-                            echo "<h1 class='h4'>File Uploaded :</h1>";
-                            echo 'Protected: <img src"../icons/shiel-check.svg">';
+                            echo "<h1 class='h5'>File(s) Uploaded</h1>";
+                            echo '<p class="mb-3">Protected <img src="icons/shield-check.svg"></p>';
 
-                            echo "<h1 class='h4'>Country :</h1>";
-                            echo '<p>' . $row["country"] . '</p>';
+                            echo "<h1 class='h5'>Country</h1>";
+                            echo '<p class="mb-3">' . $row["country"] . '</p>';
             echo "
                         </div>
                         <div class='modal-footer'>
@@ -75,43 +75,43 @@
             echo "</div>";
 
             //Edit Modal Form
-            echo '
-                <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">User (#102480)</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            echo "
+                <div class='modal fade' id='edit". $row['id'] . "' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                        <h1 class='modal-title fs-5' id='exampleModalLabel'>User (#102480)</h1>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
-                        <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="email" class="col-form-label">Email Address</label>
-                                <input type="text" class="form-control" id="email" name="email">
+                        <div class='modal-body'>
+                        <form action='db_connection/update_data.php' method='PUT' enctype='multipart/form-data'>
+                            <div class='mb-3'>
+                                <label for='email' class='col-form-label'>Email Address</label>
+                                <input type='text' class='form-control' value='" . $row['emailAddress'] . "' id='email' name='email'>
                             </div>
-                            <div class="mb-3">
-                                <label for="names" class="col-form-label">Full Names</label>
-                                <input type="text" class="form-control" id="names" name="names">
+                            <div class='mb-3'>
+                                <label for='names' class='col-form-label'>Full Names</label>
+                                <input type='text' class='form-control' value='" . $row['fullNames'] . "' id='names' name='names'>
                                 
                             </div>
-                            <div class="mb-3">
-                                <label for="uploadFile" class="col-form-label">Upload File</label>
-                                <input type="file" class="form-control" id="uploadFile" name="uploadFile">
+                            <div class='mb-3'>
+                                <label for='uploadFile' class='col-form-label'>Upload File</label>
+                                <input type='file' class='form-control' id='uploadFile' name='uploadFile'>
                             </div>
-                            <div class="mb-3">
-                                <label for="country" class="col-form-label">Country</label>
-                                <input type="text" class="form-control" id="country" name="country">
+                            <div class='mb-3'>
+                                <label for='country' class='col-form-label'>Country</label>
+                                <input type='text' class='form-control' value='" . $row['country'] . "' id='country' name='country'>
                             </div>
                         </form>
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-outline-primary">Update</button>
+                        <div class='modal-footer'>
+                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                        <button type='submit' class='btn btn-outline-primary'>Update</button>
                         </div>
                     </div>
                     </div>
                 </div>
-            ';
+            ";
         }
 
     }else{
