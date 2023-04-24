@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 
                 echo "Uploaded Successfully" . $newLocation;
 
-                header('../index.php');
+                header('location: ../all-records.php');
                 
 
             }else{
