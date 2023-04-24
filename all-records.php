@@ -35,42 +35,44 @@
             echo '<td>' . $row["uploadImage"] . '</td>';
             echo '<td>' . $row["country"] . '</td>';
             echo '<div class="row">';
-            echo "<td><a href='#view". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#view'><img src='icons/eye.svg'></a></td>";          
+            echo "<td><a href='#view". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#view". $row['id'] . "'><img src='icons/eye.svg'></a></td>";          
             echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit' data-bs-whatever='@mdo'><img src='icons/pencil-square.svg'></a></td>";        
             echo '<td><a href="db_connection/delete_data.php?deleteId='. $row['id'].'"><img src="icons/trash.svg"></a></td>';       
             echo '</div<>';
             echo '</tr>';
 
             //View Modal
-            echo "<div class='modal fade' id='view".$row['id']."' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>";
-            echo '
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">User (#102480)</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            echo "<div class='modal fade' id='view". $row['id'] . "' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>";
+            echo "
+                    <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                        <h1 class='modal-title fs-5' id='staticBackdropLabel'>User (#102480)</h1>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
-                        <div class="modal-body">
-                            <h1 class="h4">Email Address :</h1>
-                            <p>smungaimuroki@gmail.com</p>
+                        <div class='modal-body'>
+                ";
+                            echo "<h1 class='h4'>Email Address :</h1>";
+                            echo '<p>' . $row["emailAddress"] . '</p>';
 
-                            <h1 class="h4">Name :</h1>
-                            <p>Stephen M Muroki</p>
+                            echo "<h1 class='h4'>Name :</h1>";
+                            echo '<p>' . $row["fullNames"] . '</p>';
 
-                            <h1 class="h4">File Uploaded :</h1>
-                            <p>[.....]</p>
+                            echo "<h1 class='h4'>File Uploaded :</h1>";
+                            echo 'Protected: <img src"../icons/shiel-check.svg">';
 
-                            <h1 class="h4">Country :</h1>
-                            <p>Kenya (KE)</p>
+                            echo "<h1 class='h4'>Country :</h1>";
+                            echo '<p>' . $row["country"] . '</p>';
+            echo "
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        <div class='modal-footer'>
+                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
                         </div>
                     </div>
                     </div>
-                </div>
-            ';
+            ";
+
+            echo "</div>";
 
             //Edit Modal Form
             echo '
