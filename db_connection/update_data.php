@@ -2,8 +2,8 @@
 
 include_once 'connection.php';
 
-// if(isset()){
+if(isset($_POST["submit"])){
 
-// }
+}
 
 ?>
