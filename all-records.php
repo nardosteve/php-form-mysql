@@ -20,6 +20,10 @@
             </thead>
         ';
     echo '<tbody>';
+    echo '<div class="d-flex justify-content-end mb-4">
+            <a href="form.php" class="btn btn-outline-primary">Add Record</a>
+        </div>
+        ';
     //Protect the user id
     // $count = uniqid();
     $count = 0;
