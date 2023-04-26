@@ -3,7 +3,7 @@
 include_once 'connection.php';
 
 if(isset($_POST['submit'])){
-    $id = $_POST["id"];
+    $id = $_GET["updateId"];
 
     $email = sanitizeInput($_POST['email']);
     $names = sanitizeInput($_POST['names']);
@@ -57,7 +57,13 @@ if(isset($_POST['submit'])){
 
     $country = sanitizeInput($_POST['country']);
 
-    $sqlUpdate = "UPDATE userform SET emailAddress='$email', fullNames='$names', uploadImage='$fileDestination', country='$country' WHERE id='$id";
+    $sqlUpdate = "UPDATE userform SET 
+        id = '$id',
+        emailAddress = '$email',
+        fullNames = '$names',
+        uploadImage = '$fileDestination',
+        country = '$country'
+    ";
 
     if($conn->query($sqlUpdate)){
         echo "User Added & File Updated!!";
