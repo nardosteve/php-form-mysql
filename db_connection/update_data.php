@@ -58,11 +58,12 @@ if(isset($_POST['submit'])){
     $country = sanitizeInput($_POST['country']);
 
     $sqlUpdate = "UPDATE userform SET 
-        id = '$id',
         emailAddress = '$email',
         fullNames = '$names',
         uploadImage = '$fileDestination',
         country = '$country'
+        WHERE
+        id = $id
     ";
 
     if($conn->query($sqlUpdate)){
@@ -72,6 +73,17 @@ if(isset($_POST['submit'])){
     }
 
 $conn->close();
+
+}
+
+//Sanitize forms (Validation)
+function sanitizeInput($inputText){
+    $inputText = strip_tags($inputText);
+    // $inputText = str_replace(" ", "", $inputText);
+    $inputText = strtolower($inputText);
+    $inputText = ucfirst($inputText);
+
+    return $inputText;
 }
 
 ?>

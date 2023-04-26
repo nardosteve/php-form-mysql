@@ -51,7 +51,7 @@
                     <div class='modal-dialog'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                        <h1 class='modal-title fs-5' id='staticBackdropLabel'>UserID - ". $row["id"] . "</h1>
+                        <h1 class='modal-title fs-5' id='staticBackdropLabel'>UserForm Data</h1>
                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
                         <div class='modal-body'>
@@ -84,11 +84,11 @@
                     <div class='modal-dialog'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                        <h1 class='modal-title fs-5' id='exampleModalLabel'>UserID - " . $row['id'] ."</h1>
+                        <h1 class='modal-title fs-5' id='exampleModalLabel'>UserForm Data</h1>
                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
                         <div class='modal-body'>
-                        <form action='db_connection/update_data.php?updateId=" . $row["id"] ."' method='PUT' enctype='multipart/form-data'>
+                        <form action='db_connection/update_data.php?updateId=" . $row["id"] ."' method='POST' enctype='multipart/form-data'>
                             <div class='mb-3'>
                                 <label for='email' class='col-form-label'>Email Address</label>
                                 <input type='text' class='form-control' value='" . $row['emailAddress'] . "' id='email' name='email'>
@@ -106,11 +106,11 @@
                                 <label for='country' class='col-form-label'>Country</label>
                                 <input type='text' class='form-control' value='" . $row['country'] . "' id='country' name='country'>
                             </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                <button type='submit' name='submit' class='btn btn-outline-primary'>Update</button>
+                            </div>
                         </form>
-                        </div>
-                        <div class='modal-footer'>
-                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        <button type='submit' name='updateId' class='btn btn-outline-primary'>Update</button>
                         </div>
                     </div>
                     </div>
