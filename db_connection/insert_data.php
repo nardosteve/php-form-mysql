@@ -43,16 +43,19 @@ if(isset($_POST['submit'])){
                 exit();   
 
             }else{
-                echo "File is too Big!";
-
+                // echo "File is too Big!";
                 header('location: ../form.php?upload=sizeTooBig');   
                 exit();   
             }
         }else{
-            echo "Error Occured";
+            // echo "Error Occured";
+            header('location: ../form.php?upload=errorOccured');   
+            exit();  
         }
     }else{
-        echo "You can't upload this file type";
+        // echo "You can't upload this file type";
+        header('location: ../form.php?upload=fileTypeError');   
+        exit();  
     }
     //File handling
 
