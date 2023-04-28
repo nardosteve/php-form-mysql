@@ -30,23 +30,25 @@
             <input type="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
     </form>
+
+    <?php
+        $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        if(strpos($fullUrl, "upload=success")){
+            echo '
+                <div class="alert alert-success mt-5" role="alert">
+                    User Data Successfully Added!
+                </div>   
+            ';
+        }else if(strpos($fullUrl, "upload=sizeTooBig")){
+            echo '
+                <div class="alert alert-warning" role="alert">
+                    File is Large
+                </div>
+            ';
+        }
+    ?>
+
 </div>
-
-<?php
-    // if($conn->query($sqlInsert)){
-    //     echo '
-    //         <div class="alert alert-success" role="alert">
-    //             User Data Added!
-    //         </div>
-    //     ';
-    // }else{
-    //     echo '
-    //         <div class="alert alert-secondary" role="alert">
-    //           Error '. $conn->error . ' 
-    //         </div>
-    //     ';
-
-    // }
-?>
 
 <?php include 'footer.php' ?>

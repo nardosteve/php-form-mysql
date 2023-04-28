@@ -39,10 +39,14 @@ if(isset($_POST['submit'])){
 
                 echo "Uploaded Successfully" . $newLocation;
 
-                header('location: ../form.php');      
+                header('location: ../form.php?upload=success');   
+                exit();   
 
             }else{
                 echo "File is too Big!";
+
+                header('location: ../form.php?upload=sizeTooBig');   
+                exit();   
             }
         }else{
             echo "Error Occured";
