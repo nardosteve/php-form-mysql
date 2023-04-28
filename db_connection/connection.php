@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "my_form";
+$dbname = "user_data";
 
 //creating a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +23,7 @@ if($conn->connect_error){
 }
 
 //Create database
-// $sqlCommand = "CREATE DATABASE my_form";
+// $sqlCommand = "CREATE DATABASE user_data";
 
 //Check Query
 // if($conn->query($sqlCommand) === TRUE){
@@ -33,7 +33,7 @@ if($conn->connect_error){
 // }
 
 //Create tables
-// $sql = "CREATE TABLE userForm(
+// $sql = "CREATE TABLE userRecords(
 //     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //     emailAddress VARCHAR(30) NOT NULL,
 //     fullNames VARCHAR(60) NOT NULL,

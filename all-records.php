@@ -2,7 +2,7 @@
 <?php include 'db_connection/connection.php' ?>
 
 <?php 
-    $selectAll = "SELECT * FROM userform;";
+    $selectAll = "SELECT * FROM userRecords;";
     $results = $conn->query($selectAll);
 
     echo '<div class="container table-responsive mt-5">';

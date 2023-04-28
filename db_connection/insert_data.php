@@ -39,8 +39,7 @@ if(isset($_POST['submit'])){
 
                 echo "Uploaded Successfully" . $newLocation;
 
-                header('location: ../all-records.php');
-                
+                header('location: ../form.php');      
 
             }else{
                 echo "File is too Big!";
@@ -55,7 +54,7 @@ if(isset($_POST['submit'])){
 
     $country = sanitizeInput($_POST['country']);
 
-    $sqlInsert = "INSERT INTO userform (emailAddress, fullNames, uploadImage, country)
+    $sqlInsert = "INSERT INTO userRecords (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
 
     if($conn->query($sqlInsert)){

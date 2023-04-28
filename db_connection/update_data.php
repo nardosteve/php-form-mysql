@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
 
     $country = sanitizeInput($_POST['country']);
 
-    $sqlUpdate = "UPDATE userform SET 
+    $sqlUpdate = "UPDATE userRecords SET 
         emailAddress = '$email',
         fullNames = '$names',
         uploadImage = '$fileDestination',

@@ -1,6 +1,11 @@
 <?php include 'header.php' ?>
 
-<div class="container mt-5">
+<?php 
+    // include 'db_connection/connection.php'; 
+    // include 'db_connection/insert_data.php';
+?>
+
+<div class="container mt-5 w-50">
     <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
@@ -26,5 +31,22 @@
         </div>
     </form>
 </div>
+
+<?php
+    // if($conn->query($sqlInsert)){
+    //     echo '
+    //         <div class="alert alert-success" role="alert">
+    //             User Data Added!
+    //         </div>
+    //     ';
+    // }else{
+    //     echo '
+    //         <div class="alert alert-secondary" role="alert">
+    //           Error '. $conn->error . ' 
+    //         </div>
+    //     ';
+
+    // }
+?>
 
 <?php include 'footer.php' ?>
