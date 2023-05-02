@@ -11,8 +11,8 @@
     <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="john.doe@gmail.com" required>
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@gmail.com" required>
             </div>
             <div class="col-md-6 col-sm-12">
                 <label for="names" class="form-label">Full Names</label>

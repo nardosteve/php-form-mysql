@@ -2,12 +2,11 @@
 <?php include 'db_connection/connection.php' ?>
 
 <?php 
-    $selectAll = "SELECT * FROM userRecords;";
+    $selectAll = "SELECT * FROM userrecords;";
     $results = $conn->query($selectAll);
 
-    echo '<div class="container table-responsive mt-5">';
-    echo '<table class="table table-striped">';
-    echo '
+    echo '<div class="container table-responsive mt-5">
+            <table class="table table-striped">
             <thead>
                 <tr>
                 <th scope="col">ID</th>
@@ -18,9 +17,8 @@
                 <th scope="col">Actions</th>
                 </tr>
             </thead>
-        ';
-    echo '<tbody>';
-    echo '<div class="d-flex justify-content-end mb-4">
+        <tbody>
+        <div class="d-flex justify-content-end mb-4">
             <a href="form.php" class="btn btn-outline-primary">Add Record</a>
         </div>
         ';

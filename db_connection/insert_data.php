@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
     }
     //File handling
 
-    $country = sanitizeInput($_POST['country']);
+    $country = $_POST['country'];
 
     $sqlInsert = "INSERT INTO userrecords (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
