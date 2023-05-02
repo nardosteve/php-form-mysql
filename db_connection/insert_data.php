@@ -61,7 +61,7 @@ if(isset($_POST['submit'])){
 
     $country = sanitizeInput($_POST['country']);
 
-    $sqlInsert = "INSERT INTO userRecords (emailAddress, fullNames, uploadImage, country)
+    $sqlInsert = "INSERT INTO userrecords (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
 
     if($conn->query($sqlInsert)){

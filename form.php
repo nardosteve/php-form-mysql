@@ -1,8 +1,7 @@
 <?php include 'header.php' ?>
 
 <?php 
-    // include 'db_connection/connection.php'; 
-    // include 'db_connection/insert_data.php';
+    include 'db_connection/connection.php'; 
 ?>
 
 <div class="container mt-5 w-50">
@@ -13,7 +12,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="john.doe@gmail.com">
+                <input type="email" name="email" class="form-control" id="email" placeholder="john.doe@gmail.com" required>
             </div>
             <div class="col-md-6 col-sm-12">
                 <label for="names" class="form-label">Full Names</label>
@@ -24,8 +23,18 @@
                 <input class="form-control" type="file" id="uploadFile" name="uploadFile">
             </div>
             <div class="col-md-6 col-sm-12 mb-3">
-                <label for="country" class="form-label">Country</label>
-                <input type="text" class="form-control" id="country" name="country" placeholder="Kenya">
+                <label for="country" class="form-label">Countries</label>
+                <?php 
+                    $getCountres = "SELECT * FROM countries";
+                    $countries = mysqli_query($conn, $getCountres);
+                ?>
+                <!-- <input type="text" class="form-control" id="country" name="country" placeholder="Kenya"> -->
+                <select class="form-select" aria-label=".form-select example" id="country" name="country">
+                    <!-- <option selected-disabled>Countries</option> -->
+                    <?php while($row = mysqli_fetch_assoc($countries)) { ?>
+                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["name"]; ?></option>
+                    <?php } ?>
+                </select>
             </div>
         </div>
         <div class="d-grid gap-2">
@@ -34,6 +43,7 @@
         </div>
     </form>
 
+    <!-- Error Handlers -->
     <?php
         $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
@@ -60,6 +70,7 @@
             ';
         }
     ?>
+    <!-- Error Handlers -->
 
 </div>
 
