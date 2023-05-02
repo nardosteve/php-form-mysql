@@ -6,7 +6,7 @@
 
 <div class="container mt-5 w-50">
 
-    <h1 class="displa-2 my-5 text-center">Upload user data</h1>
+    <h1 class="display-2 my-5 text-center">Upload user data</h1>
 
     <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
@@ -38,7 +38,6 @@
             </div>
         </div>
         <div class="d-grid gap-2">
-            <!-- <button type="submit" class="btn btn-primary" name="submit">Submit</button> -->
             <input type="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
     </form>

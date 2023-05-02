@@ -6,7 +6,7 @@ if(isset($_GET["deleteId"])){
 
     $id = $_GET["deleteId"];
 
-    $sqlDelete = "DELETE FROM userform WHERE id = $id";
+    $sqlDelete = "DELETE FROM userrecords WHERE id = $id";
 
     $result = $conn->query($sqlDelete);
 
