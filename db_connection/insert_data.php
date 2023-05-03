@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 
                 echo "Uploaded Successfully" . $newLocation;
 
-                header('location: ../form.php?upload=success');   
+                header('location: ../form.php?upload=success');
                 exit();   
 
             }else{
@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
     if($conn->query($sqlInsert)){
         echo "User Added & File Uploaded!";
     }else{
-        echo " Error:" . $sqlInsert . "<br>" . $conn->error;
+        echo "Error:" . $sqlInsert . "<br>" . $conn->error;
     }
 
 $conn->close();
