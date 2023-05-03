@@ -8,7 +8,7 @@
 
     <h1 class="display-4 my-3 text-center">Upload User Data</h1>
 
-    <form action="../db_connection/insert_data.php" method="POST" onsubmit="return formValidation()" enctype="multipart/form-data">
+    <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="email" class="form-label">Email Address</label>
@@ -60,10 +60,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             ';
-        }else if(strpos($fullUrl, "upload=sizeTooBig")){
+        }else if(strpos($fullUrl, "upload=errorOccured")){
+            echo '
+                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                    <strong>Yikes!</strong> Error Occured
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            ';
+        }else if(strpos($fullUrl, "upload=fileTypeError")){
             echo '
                 <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
-                    <strong>Yikes!</strong> File is too big
+                    <strong>Yikes!</strong> Filetype Error
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             ';

@@ -2,6 +2,8 @@
 
 include_once 'connection.php';
 
+// echo "<pre>" .print_r($_POST,1);exit;
+
 if(isset($_POST['submit'])){
     $email = sanitizeInput($_POST['email']);
     $names = sanitizeInput($_POST['names']);
@@ -37,27 +39,29 @@ if(isset($_POST['submit'])){
                 //Move file from temporary location to new location
                 $newLocation = move_uploaded_file($fileTmp, $fileDestination);
 
-                echo "Uploaded Successfully" . $newLocation;
+                // echo "Uploaded Successfully" . $newLocation;
 
                 header('location: ../form.php?upload=success');
-                exit();   
+                // exit();   
 
             }else{
                 // echo "File is too Big!";
                 header('location: ../form.php?upload=sizeTooBig');   
-                exit();   
+                // exit();   
             }
         }else{
             // echo "Error Occured";
             header('location: ../form.php?upload=errorOccured');   
-            exit();  
+            // exit();  
         }
     }else{
         // echo "You can't upload this file type";
         header('location: ../form.php?upload=fileTypeError');   
-        exit();  
+        // exit();  
     }
     //File handling
+
+    $country = $_POST['country'];
 
     //More Error Handlers
     if(empty($email) || empty($names) || empty($fileName) || empty($country)){
@@ -67,13 +71,14 @@ if(isset($_POST['submit'])){
     }
     //More Error Handlers
 
-    $country = $_POST['country'];
-
     $sqlInsert = "INSERT INTO userrecords (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
 
+    // echo "$sqlInsert";
+    // exit;
+
     if($conn->query($sqlInsert)){
-        echo "User Added & File Uploaded!";
+        echo "User Added & File Uploaded!!!";
     }else{
         echo "Error:" . $sqlInsert . "<br>" . $conn->error;
     }
