@@ -4,6 +4,7 @@ include_once 'connection.php';
 
 // echo "<pre>" .print_r($_POST,1);exit;
 
+//$_POST[] - is an associative array (Key -> value)
 if(isset($_POST['submit'])){
     $email = sanitizeInput($_POST['email']);
     $names = sanitizeInput($_POST['names']);
@@ -42,22 +43,17 @@ if(isset($_POST['submit'])){
                 // echo "Uploaded Successfully" . $newLocation;
 
                 header('location: ../form.php?upload=success');
-                // exit();   
-
             }else{
                 // echo "File is too Big!";
                 header('location: ../form.php?upload=sizeTooBig');   
-                // exit();   
             }
         }else{
             // echo "Error Occured";
             header('location: ../form.php?upload=errorOccured');   
-            // exit();  
         }
     }else{
         // echo "You can't upload this file type";
-        header('location: ../form.php?upload=fileTypeError');   
-        // exit();  
+        header('location: ../form.php?upload=fileTypeError'); 
     }
     //File handling
 
@@ -66,7 +62,7 @@ if(isset($_POST['submit'])){
     //More Error Handlers
     if(empty($email) || empty($names) || empty($fileName) || empty($country)){
         header("location: ../form.php?upload=emptyFields");
-    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL, 200)){
         header("location: ../form.php?upload=invalideEmail");
     }
     //More Error Handlers

@@ -23,20 +23,28 @@
             <a href="form.php" class="btn btn-outline-primary">Add Record</a>
         </div>
         ';
+
     //Protect the user id
-    // $count = uniqid();
     $count = 0;
+
     if($results->num_rows > 0){
         while($row = $results->fetch_assoc()){
             //Count to generate new numbers
             $count++;
+
+            //Get country by Name not ID
+            $countryQuery = "SELECT name FROM countries WHERE id = " . $row['id'];
+            $countryResult = $conn->query($countryQuery);
+            $countryRow = $countryResult->fetch_assoc();
+
+
             // echo "id: ". $row["id"] . "<br>" . "Email Address: ". $row["emailAddress"];
             echo '<tr>';
             echo '<th scope="row">' . $count . '</th>';
             echo '<td>' . $row["emailAddress"] . '</td>';
             echo '<td>' . $row["fullNames"] . '</td>';
             echo '<td>' . $row["uploadImage"] . '</td>';
-            echo '<td>' . $row["country"] . '</td>';
+            echo '<td>' . $countryRow["name"] . '</td>';
             echo '<div class="row">';
             echo "<td><a href='#view". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#view". $row['id'] . "'><img src='icons/eye.svg'></a></td>";          
             echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit". $row['id'] . "' data-bs-whatever='@mdo'><img src='icons/pencil-square.svg'></a></td>";        
