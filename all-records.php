@@ -47,9 +47,9 @@
             echo '<td>' . $countryRow["name"] . '</td>';
             echo '<div class="row">';
             echo "<td><a href='#view". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#view". $row['id'] . "'><img src='icons/eye.svg'></a></td>";          
-            echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit". $row['id'] . "' data-bs-whatever='@mdo'><img src='icons/pencil-square.svg'></a></td>";        
+            echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit". $row['id'] . "'><img src='icons/pencil-square.svg'></a></td>";        
             echo '<td><a href="db_connection/delete_data.php?deleteId='. $row['id'].'"><img src="icons/trash.svg"></a></td>';       
-            echo '</div<>';
+            echo '</div>';
             echo '</tr>';
 
             //Check if its an image or PDF
@@ -83,17 +83,8 @@
                             if($getExtension == 'jpg' || $getExtension == 'jpeg' || $getExtension == 'png'){
                                 echo '<p class="mb-3"><img class="img-fluid img-thumbnail" src="' . $row["uploadImage"] . '"></p>';
                             }else{
-                                // $file = $row["uploadImage"];
-                                // $filename = $row["uploadImage"];
-                                // header('Content-type: application/pdf');
-                                // header('Content-Disposition: inline; filename="' . $filename . '"');
-                                // header('Content-Transfer-Encoding: binary');
-                                // header('Content-Length: ' . filesize($file));
-                                // header('Accept-Ranges: bytes');
-                                // ob_clean(); // remove any previous output
-                                // flush(); // flush the output buffer
-                                // readfile($file);
-                                echo '<p class="mb-3">PDF Coming Soon!></p>';
+                                // echo '<a class="link-offset-2 link-underline link-underline-opacity-0 mb-4" href="'. $row["uploadImage"] .'" target="_blank"><img src="icons/eye.svg"> - View</a>';
+                                echo '<p class="mb-3">PDF Coming Soon</p>';
                             }
 
                             echo "<h1 class='h5'>Country</h1>";
