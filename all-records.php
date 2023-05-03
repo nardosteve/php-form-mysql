@@ -66,11 +66,11 @@
                             echo "<h1 class='h5'>Email Address</h1>";
                             echo '<p class="mb-3">' . $row["emailAddress"] . '</p>';
 
-                            echo "<h1 class='h5'>Names</h1>";
+                            echo "<h1 class='h5'>Full Names</h1>";
                             echo '<p class="mb-3">' . $row["fullNames"] . '</p>';
 
-                            echo "<h1 class='h5'>File(s) Uploaded</h1>";
-                            echo '<p class="mb-3">Protected <img src="icons/shield-check.svg"></p>';
+                            echo "<h1 class='h5 mb-3'>File(s) Uploaded</h1>";
+                            echo '<p class="mb-3"><img class="img-fluid img-thumbnail" src="' . $row["uploadImage"] . '"></p>';
 
                             echo "<h1 class='h5'>Country</h1>";
                             echo '<p class="mb-3">' . $row["country"] . '</p>';
