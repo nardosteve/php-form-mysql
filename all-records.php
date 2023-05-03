@@ -55,10 +55,10 @@
             //Check if its an image or PDF
             $getPath= $row["uploadImage"];
             $splitPath = explode('.', $getPath);
-            print_r($splitPath);
+            // print_r($splitPath);
 
             $getExtension = strtolower(end($splitPath));
-            print_r($getExtension);
+            // print_r($getExtension);
             //Check if its an image or PDF
         
             //View Modal
@@ -80,9 +80,21 @@
 
                             echo "<h1 class='h5 mb-3'>File(s) Uploaded</h1>";
 
-                            if($getExtension == 'jpg'){}
-
-                            echo '<p class="mb-3"><img class="img-fluid img-thumbnail" src="' . $row["uploadImage"] . '"></p>';
+                            if($getExtension == 'jpg' || $getExtension == 'jpeg' || $getExtension == 'png'){
+                                echo '<p class="mb-3"><img class="img-fluid img-thumbnail" src="' . $row["uploadImage"] . '"></p>';
+                            }else{
+                                // $file = $row["uploadImage"];
+                                // $filename = $row["uploadImage"];
+                                // header('Content-type: application/pdf');
+                                // header('Content-Disposition: inline; filename="' . $filename . '"');
+                                // header('Content-Transfer-Encoding: binary');
+                                // header('Content-Length: ' . filesize($file));
+                                // header('Accept-Ranges: bytes');
+                                // ob_clean(); // remove any previous output
+                                // flush(); // flush the output buffer
+                                // readfile($file);
+                                echo '<p class="mb-3">PDF Coming Soon!></p>';
+                            }
 
                             echo "<h1 class='h5'>Country</h1>";
                             echo '<p class="mb-3">' . $row["country"] . '</p>';
