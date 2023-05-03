@@ -52,6 +52,15 @@
             echo '</div<>';
             echo '</tr>';
 
+            //Check if its an image or PDF
+            $getPath= $row["uploadImage"];
+            $splitPath = explode('.', $getPath);
+            print_r($splitPath);
+
+            $getExtension = strtolower(end($splitPath));
+            print_r($getExtension);
+            //Check if its an image or PDF
+        
             //View Modal
             echo "<div class='modal fade' id='view". $row['id'] . "' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>";
             echo "
@@ -70,6 +79,9 @@
                             echo '<p class="mb-3">' . $row["fullNames"] . '</p>';
 
                             echo "<h1 class='h5 mb-3'>File(s) Uploaded</h1>";
+
+                            if($getExtension == 'jpg'){}
+
                             echo '<p class="mb-3"><img class="img-fluid img-thumbnail" src="' . $row["uploadImage"] . '"></p>';
 
                             echo "<h1 class='h5'>Country</h1>";
