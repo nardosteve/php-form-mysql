@@ -59,6 +59,14 @@ if(isset($_POST['submit'])){
     }
     //File handling
 
+    //More Error Handlers
+    if(empty($email) || empty($names) || empty($fileName) || empty($country)){
+        header("location: ../form.php?upload=emptyFields");
+    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        header("location: ../form.php?upload=invalideEmail");
+    }
+    //More Error Handlers
+
     $country = $_POST['country'];
 
     $sqlInsert = "INSERT INTO userrecords (emailAddress, fullNames, uploadImage, country)

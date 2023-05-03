@@ -6,6 +6,7 @@
     $results = $conn->query($selectAll);
 
     echo '<div class="container table-responsive mt-5">
+            <h1 class="display-4 my-2 text-center">All Users</h1>
             <table class="table table-striped">
             <thead>
                 <tr>

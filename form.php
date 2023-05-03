@@ -6,7 +6,7 @@
 
 <div class="container mt-5 w-50">
 
-    <h1 class="display-2 my-5 text-center">Upload user data</h1>
+    <h1 class="display-4 my-3 text-center">Upload User Data</h1>
 
     <form action="../db_connection/insert_data.php" method="POST" onsubmit="return formValidation()" enctype="multipart/form-data">
         <div class="row">
@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <label for="names" class="form-label">Full Names</label>
-                <input type="text" class="form-control" id="names" name="names" placeholder="John Doe" required>
+                <input type="text" class="form-control" id="names" name="names" placeholder="John Doe">
             </div>
             <div class="col-md-6 col-sm-12">
                 <label for="uploadFile" class="form-label">Upload File</label>
@@ -67,6 +67,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             ';
+        }else if(strpos($fullUrl, "upload=emptyFields")){
+            echo '
+            <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+                <strong>Yikes!</strong> Fill in all the fields
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
+        }else if(strpos($fullUrl, "upload=invalideEmail")){
+            echo '
+            <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+                <strong>Yikes!</strong> Invalide Email Address
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
         }
     ?>
     <!-- Error Handlers -->
