@@ -97,7 +97,7 @@
 <script>
 
     $(document).ready(function(){
-       $("h1").click(function(){
+       $("form").click(function(){
         $(this).hide();
        });
     });
