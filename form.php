@@ -8,7 +8,7 @@
 
     <h1 class="display-4 my-3 text-center">Upload User Data</h1>
 
-    <form action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
+    <form id="form" action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="email" class="form-label">Email Address</label>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="d-grid gap-2">
-            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+            <input type="submit" id="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
     </form>
 
@@ -93,5 +93,16 @@
     <!-- Error Handlers -->
 
 </div>
+
+<script>
+    $(document).ready(function(){
+       $("form").submit(function(event){
+        //jQuery
+        event.preventDefault();
+
+        //variables
+       });
+    });
+</script>
 
 <?php include 'footer.php' ?>

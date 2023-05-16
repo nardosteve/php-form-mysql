@@ -37,7 +37,6 @@
             $countryResult = $conn->query($countryQuery);
             $countryRow = $countryResult->fetch_assoc();
 
-
             // echo "id: ". $row["id"] . "<br>" . "Email Address: ". $row["emailAddress"];
             echo '<tr>';
             echo '<th scope="row">' . $count . '</th>';
@@ -143,11 +142,14 @@
     }else{
 
     }
-?>
 
-        </tbody>
-    </table>
-</div>
+    echo '
+            </tbody>
+        </table>
+    </div>
 
+    ';
+?>  
+    
 <?php include 'footer.php' ?>
 
