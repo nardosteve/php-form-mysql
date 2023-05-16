@@ -95,14 +95,13 @@
 </div>
 
 <script>
-    $(document).ready(function(){
-       $("form").submit(function(event){
-        //jQuery
-        event.preventDefault();
 
-        //variables
+    $(document).ready(function(){
+       $("h1").click(function(){
+        $(this).hide();
        });
     });
+
 </script>
 
 <?php include 'footer.php' ?>
