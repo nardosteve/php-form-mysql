@@ -8,7 +8,7 @@
 
     <h1 class="display-4 my-3 text-center">Upload User Data</h1>
 
-    <form id="form" action="../db_connection/insert_data.php" method="POST" enctype="multipart/form-data">
+    <form id="form" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <label for="email" class="form-label">Email Address</label>
@@ -40,10 +40,11 @@
         <div class="d-grid gap-2">
             <input type="submit" id="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
-        <!-- <div id="ajax-alert" class="alert alert-success alert-dismissible fade show mt-5" role="alert">
-            <strong></strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div> -->
+
+        <div id="ajax-alert" class="alert-dismissible fade show mt-5" role="alert">
+                    
+        </div>
+
     </form>
 
     <!-- Error Handlers -->
@@ -97,30 +98,5 @@
     <!-- Error Handlers -->
 
 </div>
-
-<!-- <script>
-
-    $(document).ready(function(){
-       $("form").click(function(event){
-        //Take submit and prevent submit
-        event.preventDefault();
-
-        var email = $("#email").val();
-        var names = $("#names").val();
-        var uploadFile = $("#uploadFile").val();
-        var country = $("#country").val();
-        var submit = $("#submit").val();
-
-        $("#ajax-alert").load("../db_connection/insert_data.php", {
-            email: email,
-            names: names,
-            uploadFile: uploadFile,
-            country: country,
-            submit: submit
-        });
-       });
-    });
-
-</script> -->
 
 <?php include 'footer.php' ?>

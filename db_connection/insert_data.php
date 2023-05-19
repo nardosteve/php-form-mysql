@@ -1,4 +1,5 @@
 <?php
+echo"<pre>".print_r($_POST,1)."</pre>";exit;
 
 include_once 'connection.php';
 
@@ -66,17 +67,17 @@ if(isset($_POST['submit'])){
     //     header("location: ../form.php?upload=invalideEmail");
     // }
 
-    // $errorEmpty = false;
-    // $errorEmail = false;
+    $errorEmpty = false;
+    $errorEmail = false;
 
-    // if(empty($email) || empty($names) || empty($fileName) || empty($country)){
-    //     // echo "<span class='alert alert-warning'>Fill in the all fields!</span>";
-    //     header('location: ../form.php?validate=emptyFields'); 
-    //     $errorEmpty = true;
-    // }else if(!filter_var($email, FILTER_VALIDATE_EMAIL, 200)){
-    //     // echo "<span class='alert alert-warning'>Invalid Email Address!</span>";
-    //     header('location: ../form.php?validate=invalidEmail'); 
-    // }
+    if(empty($email) || empty($names) || empty($fileName) || empty($country)){
+        // echo "<span class='alert alert-warning'>Fill in the all fields!</span>";
+        header('location: ../form.php?validate=emptyFields'); 
+        $errorEmpty = true;
+    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL, 200)){
+        // echo "<span class='alert alert-warning'>Invalid Email Address!</span>";
+        header('location: ../form.php?validate=invalidEmail'); 
+    }
     //More Error Handlers
 
     $sqlInsert = "INSERT INTO userrecords (emailAddress, fullNames, uploadImage, country)
@@ -108,16 +109,5 @@ function sanitizeInput($inputText){
 ?>
 
 <script>
-    // var errorEmpty = "<?php echo $errorEmpty ?>";
-    // var errorEmail = "<?php echo $errorEmail ?>";
-
-    // if(errorEmpty){
-    //     $("#email, #names, #uploadFile, #country").addClass("alert alert-warning");
-    // }
-    // if(errorEmail){
-    //     $("#email").addClass("alert alert-warning");
-    // }
-    // if(!errorEmpty && !errorEmail){
-    //     $("#email, #names, #uploadFile, #country").val("");
-    // }
+   
 </script>
