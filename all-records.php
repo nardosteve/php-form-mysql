@@ -43,7 +43,7 @@
             echo '<td>' . $row["emailAddress"] . '</td>';
             echo '<td>' . $row["fullNames"] . '</td>';
             echo '<td>' . $row["uploadImage"] . '</td>';
-            echo '<td>' . $countryRow["name"] . '</td>';
+            // echo '<td>' . $countryRow["name"] . '</td>';
             echo '<div class="row">';
             echo "<td><a href='#view". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#view". $row['id'] . "'><img src='icons/eye.svg'></a></td>";          
             echo "<td><a href='#edit". $row['id'] . "' data-bs-toggle='modal' data-bs-target='#edit". $row['id'] . "'><img src='icons/pencil-square.svg'></a></td>";        

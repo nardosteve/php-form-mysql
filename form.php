@@ -40,6 +40,10 @@
         <div class="d-grid gap-2">
             <input type="submit" id="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
+        <!-- <div id="ajax-alert" class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+            <strong></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> -->
     </form>
 
     <!-- Error Handlers -->
@@ -74,14 +78,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             ';
-        }else if(strpos($fullUrl, "upload=emptyFields")){
+        }else if(strpos($fullUrl, "validate=emptyFields")){
             echo '
             <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
                 <strong>Yikes!</strong> Fill in all the fields
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         ';
-        }else if(strpos($fullUrl, "upload=invalideEmail")){
+        }else if(strpos($fullUrl, "validate=invalidEmail")){
             echo '
             <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
                 <strong>Yikes!</strong> Invalide Email Address
@@ -94,14 +98,29 @@
 
 </div>
 
-<script>
+<!-- <script>
 
     $(document).ready(function(){
-       $("form").click(function(){
-        $(this).hide();
+       $("form").click(function(event){
+        //Take submit and prevent submit
+        event.preventDefault();
+
+        var email = $("#email").val();
+        var names = $("#names").val();
+        var uploadFile = $("#uploadFile").val();
+        var country = $("#country").val();
+        var submit = $("#submit").val();
+
+        $("#ajax-alert").load("../db_connection/insert_data.php", {
+            email: email,
+            names: names,
+            uploadFile: uploadFile,
+            country: country,
+            submit: submit
+        });
        });
     });
 
-</script>
+</script> -->
 
 <?php include 'footer.php' ?>
