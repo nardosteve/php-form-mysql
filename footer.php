@@ -7,7 +7,7 @@
       $(document).ready(function(){
         $("#submit").on('click',function(e){
           e.preventDefault();
-          
+
           // var formData = $(this)/serialize();
 
           var email = $("#email").val();
@@ -26,7 +26,7 @@
                     data: {
                       "email": email,
                       "names": names,
-                      // "uploadFile": uploadFile,
+                      "uploadFile": uploadFile,
                       "country": country
                     },
                     beforeSend: function(){
