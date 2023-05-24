@@ -1,9 +1,13 @@
 <?php
-echo"<pre>".print_r($_POST,1)."</pre>";exit;
+echo"<pre>".print_r($_POST,1)."</pre>";
+exit;
 
 include_once 'connection.php';
 
-// echo "<pre>" .print_r($_POST,1);exit;
+$response = array(
+    'status' => 0,
+    'message' => "Submission failed!"
+);
 
 //$_POST[] - is an associative array (Key -> value)
 if(isset($_POST['submit'])){
@@ -71,12 +75,10 @@ if(isset($_POST['submit'])){
     $errorEmail = false;
 
     if(empty($email) || empty($names) || empty($fileName) || empty($country)){
-        // echo "<span class='alert alert-warning'>Fill in the all fields!</span>";
         header('location: ../form.php?validate=emptyFields'); 
-        $errorEmpty = true;
     }else if(!filter_var($email, FILTER_VALIDATE_EMAIL, 200)){
-        // echo "<span class='alert alert-warning'>Invalid Email Address!</span>";
         header('location: ../form.php?validate=invalidEmail'); 
+        $response['message'] = "Enter a valid email";
     }
     //More Error Handlers
 
@@ -107,7 +109,3 @@ function sanitizeInput($inputText){
 }
 
 ?>
-
-<script>
-   
-</script>

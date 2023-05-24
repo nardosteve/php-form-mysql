@@ -18,14 +18,21 @@
           }else{
                 $.ajax({
                     url:'db_connection/insert_data.php',
-                    type:'POST',
-                    data:{
+                    type: 'POST',
+                    data: {
                         'email':email,
                         'names': names,
                         'country': country         
                     },
-                    success:function(res){
-                        $('#ajax-alert').html("<div class='alert alert-success'>"+res+"</div>")
+                    success: function(response){
+                        $('#ajax-alert').html("")
+                        if(response.status == 1){
+                          $("#form")[0].reset();
+                          $('#ajax-alert').html("<div class='alert alert-success'>"+response.message+"</div>")
+                        }else{
+                          $('#ajax-alert').html("<div class='alert alert-danger'>"+response.message+"</div>")
+
+                        }
                     }
                 })
           }

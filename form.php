@@ -25,8 +25,8 @@
             <div class="col-md-6 col-sm-12 mb-3">
                 <label for="country" class="form-label">Countries</label>
                 <?php 
-                    $getCountres = "SELECT * FROM countries";
-                    $countries = mysqli_query($conn, $getCountres);
+                    $getCountries = "SELECT * FROM countries";
+                    $countries = mysqli_query($conn, $getCountries);
                 ?>
                 <!-- <input type="text" class="form-control" id="country" name="country" placeholder="Kenya"> -->
                 <select class="form-select" aria-label=".form-select example" id="country" name="country" required>
