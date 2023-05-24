@@ -40,8 +40,19 @@
           }
           return false;
         });
+
+        // File type validation
+        $("#uploadFile").change(function() {
+            var file = this.files[0];
+            var fileType = file.type;
+            var match = ['application/pdf', 'application/msword', 'application/vnd.ms-office', 'image/jpeg', 'image/png', 'image/jpg'];
+            if(!((fileType == match[0]) || (fileType == match[1]) || (fileType == match[2]) || (fileType == match[3]) || (fileType == match[4]) || (fileType == match[5]))){
+                alert('Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.');
+                $("#file").val('');
+                return false;
+            }
+        });
         
       });
-
   </script>
     </html>
