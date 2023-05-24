@@ -67,7 +67,10 @@ if(isset($_POST['submit'])){
         header('location: ../form.php?validate=invalidEmail'); 
     }
     //More Error Handlers
+    $uploadStatus = 0;
+    if($uploadStatus == 1){
 
+    }
     $sqlInsert = "INSERT INTO userrecords (emailAddress, fullNames, uploadImage, country)
         VALUES('$email', '$names', '$fileDestination', '$country')";
 

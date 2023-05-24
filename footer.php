@@ -5,9 +5,9 @@
     <script>
 
       $(document).ready(function(){
-        $("#submit").on('click',function(){
-          //Take submit and prevent submi
-
+        $("#submit").on('click',function(e){
+          e.preventDefault();
+          
           // var formData = $(this)/serialize();
 
           var email = $("#email").val();
@@ -26,11 +26,15 @@
                     data: {
                       "email": email,
                       "names": names,
+                      // "uploadFile": uploadFile,
                       "country": country
                     },
+                    beforeSend: function(){
+                      $('#submit').attr("disabled", "disabled");
+                    },
                     success: function(response){
-                          $('#ajax-alert').html("<div class='alert alert-success'>"+response+"</div>")
-                          // $("#form")[0].reset();
+                      $('#ajax-alert').html("<div class='alert alert-success'>"+response+"</div>")
+                      $("#form")[0].reset();
                     }
                 })
           }
