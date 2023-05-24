@@ -8,31 +8,29 @@
         $("#submit").on('click',function(){
           //Take submit and prevent submi
 
+          // var formData = $(this)/serialize();
+
           var email = $("#email").val();
           var names = $("#names").val();
           var uploadFile = $("#uploadFile").val();
           var country = $("#country").val();
 
           if(email == '' || names == '' || country == ''){
-            $('#ajax-alert').html("<div class='alert alert-danger'>Fields cannont be empty</div>")
+            $('#ajax-alert').html("<div class='alert alert-danger text-center alert-dismissible fade show' role='alert'>Fields cannot be empty <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
           }else{
                 $.ajax({
                     url:'db_connection/insert_data.php',
                     type: 'POST',
+                    contentType: false,
+                    processData: false,
                     data: {
-                        'email':email,
-                        'names': names,
-                        'country': country         
+                      "email": email,
+                      "names": names,
+                      "country": country
                     },
                     success: function(response){
-                        $('#ajax-alert').html("")
-                        if(response.status == 1){
-                          $("#form")[0].reset();
-                          $('#ajax-alert').html("<div class='alert alert-success'>"+response.message+"</div>")
-                        }else{
-                          $('#ajax-alert').html("<div class='alert alert-danger'>"+response.message+"</div>")
-
-                        }
+                          $('#ajax-alert').html("<div class='alert alert-success'>"+response+"</div>")
+                          // $("#form")[0].reset();
                     }
                 })
           }

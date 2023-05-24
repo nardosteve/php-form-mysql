@@ -1,13 +1,9 @@
 <?php
-echo"<pre>".print_r($_POST,1)."</pre>";
-exit;
+// echo"<pre>".print_r($_POST,1)."</pre>";
+// exit;
 
 include_once 'connection.php';
 
-$response = array(
-    'status' => 0,
-    'message' => "Submission failed!"
-);
 
 //$_POST[] - is an associative array (Key -> value)
 if(isset($_POST['submit'])){
@@ -65,20 +61,10 @@ if(isset($_POST['submit'])){
     $country = $_POST['country'];
 
     //More Error Handlers
-    // if(empty($email) || empty($names) || empty($fileName) || empty($country)){
-    //     header("location: ../form.php?upload=emptyFields");
-    // }else if(!filter_var($email, FILTER_VALIDATE_EMAIL, 200)){
-    //     header("location: ../form.php?upload=invalideEmail");
-    // }
-
-    $errorEmpty = false;
-    $errorEmail = false;
-
     if(empty($email) || empty($names) || empty($fileName) || empty($country)){
         header('location: ../form.php?validate=emptyFields'); 
     }else if(!filter_var($email, FILTER_VALIDATE_EMAIL, 200)){
         header('location: ../form.php?validate=invalidEmail'); 
-        $response['message'] = "Enter a valid email";
     }
     //More Error Handlers
 
